@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#29231e">
+  <meta name="description" content="Browse the menu and order from Saffron Table in Indore, Madhya Pradesh.">
+  <title>Saffron Table | Indore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #29231e;
+      --muted: #766d64;
+      --paper: #fbf8f3;
+      --surface: #fffefa;
+      --line: #e9e1d7;
+      --saffron: #d97719;
+      --saffron-dark: #a9510b;
+      --saffron-pale: #fff0dc;
+      --green: #258044;
+      --red: #c43c36;
+      --shadow: 0 12px 32px rgb(52 37 22 / 8%);
+      --display: "Playfair Display", Georgia, serif;
+      --body: "DM Sans", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.5; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid #e39b4e; outline-offset: 3px; }
+    .site-header { position: sticky; z-index: 20; top: 0; background: rgb(41 35 30 / 97%); color: #fffaf3; box-shadow: 0 3px 14px rgb(0 0 0 / 12%); }
+    .header-inner { width: min(1120px, 100%); min-height: 68px; padding: 10px 18px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; flex: 0 0 auto; }
+    .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 50%; background: var(--saffron); color: white; font-family: var(--display); font-size: 23px; font-weight: 800; }
+    .brand-copy { display: grid; line-height: 1.15; }
+    .brand-name { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: .01em; }
+    .brand-location { margin-top: 4px; color: #d9cfc2; font-size: 10px; letter-spacing: .07em; }
+    .main-nav { display: flex; align-items: center; gap: clamp(8px, 2vw, 22px); }
+    .main-nav a { padding: 8px 0; color: #f7efe5; font-size: 12px; text-decoration: none; white-space: nowrap; }
+    .main-nav a:hover, .main-nav a[aria-current="page"] { color: #ffc574; }
+    .nav-cart { display: inline-flex; align-items: center; gap: 6px; }
+    .count-badge { min-width: 20px; height: 20px; display: inline-grid; place-items: center; padding: 0 5px; border-radius: 20px; background: var(--saffron); color: white; font-size: 11px; font-weight: 700; }
+    .demo-banner, .connection-banner { padding: 7px 16px; text-align: center; font-size: 12px; }
+    .demo-banner { background: #fff0dc; color: #71400c; }
+    .connection-banner { background: #fff1ed; color: #8c2f1e; }
+    main { min-height: calc(100vh - 160px); }
+    .page { display: none; width: min(1120px, 100%); min-height: 66vh; padding: 32px 18px 70px; margin: auto; }
+    .page.active { display: block; animation: appear .18s ease-out; }
+    @keyframes appear { from { opacity: .7; transform: translateY(3px); } to { opacity: 1; transform: none; } }
+    .eyebrow { color: var(--saffron-dark); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--display); }
+    h1 { margin: 5px 0 9px; font-size: clamp(32px, 6vw, 45px); line-height: 1.12; }
+    .intro { margin-bottom: 20px; color: var(--muted); font-size: 14px; }
+    .menu-hero { height: clamp(150px, 34vw, 270px); overflow: hidden; margin-bottom: 24px; border-radius: 16px; background: linear-gradient(120deg, #edb15c, #b85b18); box-shadow: var(--shadow); }
+    .menu-hero img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 54%; }
+    .menu-tools { display: grid; gap: 12px; }
+    .search-wrap { position: relative; }
+    .search-wrap::before { content: "⌕"; position: absolute; top: 50%; left: 15px; color: var(--muted); font-size: 25px; transform: translateY(-55%); pointer-events: none; }
+    .search-input, .field-control { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); }
+    .search-input { padding: 10px 14px 10px 43px; }
+    .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+    .filter-label { margin-right: 2px; color: var(--muted); font-size: 12px; font-weight: 600; }
+    .filter-button, .category-tab { border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: background .16s ease, color .16s ease, border-color .16s ease; }
+    .filter-button { min-height: 37px; padding: 7px 13px; border-radius: 22px; font-size: 12px; }
+    .filter-button[aria-pressed="true"], .category-tab[aria-pressed="true"] { border-color: var(--saffron); background: var(--saffron); color: white; }
+    .category-strip { position: sticky; z-index: 10; top: 68px; overflow-x: auto; margin: 16px -18px 20px; padding: 10px 18px; background: rgb(251 248 243 / 96%); scrollbar-width: thin; }
+    .category-tabs { display: flex; width: max-content; gap: 8px; }
+    .category-tab { min-height: 36px; padding: 7px 14px; border-radius: 22px; font-size: 12px; white-space: nowrap; }
+    .menu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .dish-card { overflow: hidden; min-width: 0; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); box-shadow: 0 3px 14px rgb(52 37 22 / 4%); transition: transform .18s ease, box-shadow .18s ease; }
+    .dish-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .dish-image-wrap { position: relative; aspect-ratio: 1.38 / 1; overflow: hidden; background: linear-gradient(135deg, #edb15c, #b85b18); }
+    .dish-image { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .photo-credit { position: absolute; right: 0; bottom: 0; left: 0; overflow: hidden; padding: 18px 8px 6px; background: linear-gradient(transparent, rgb(25 20 17 / 78%)); color: white; font-size: 9px; line-height: 1.25; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+    .photo-credit:hover { text-decoration: underline; text-underline-offset: 2px; }
+    .image-fallback { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(135deg, #edb15c, #b85b18); color: white; font-family: var(--display); font-size: 50px; font-weight: 700; }
+    .image-fallback[hidden] { display: none; }
+    .dish-copy { padding: 11px 10px 12px; }
+    .dish-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; }
+    .dish-name { margin: 0; font-family: var(--display); font-size: 15px; line-height: 1.25; }
+    .food-mark { width: 17px; height: 17px; display: inline-grid; flex: 0 0 auto; place-items: center; border: 1px solid currentColor; border-radius: 3px; color: var(--green); }
+    .food-mark.nonveg { color: var(--red); }
+    .food-mark::after { width: 8px; height: 8px; border-radius: 50%; background: currentColor; content: ""; }
+    .dish-description { min-height: 33px; margin: 6px 0 10px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .dish-bottom { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+    .price { color: var(--ink); font-size: 14px; font-weight: 700; white-space: nowrap; }
+    .add-button, .primary-button { min-height: 37px; padding: 8px 15px; border: 0; border-radius: 8px; background: var(--saffron); color: white; font-size: 12px; font-weight: 700; transition: background .15s ease, transform .15s ease; }
+    .add-button:hover, .primary-button:hover { background: var(--saffron-dark); }
+    .add-button:active, .primary-button:active { transform: scale(.97); }
+    .quantity-control { display: inline-flex; align-items: center; gap: 8px; min-height: 37px; padding: 3px 6px; border: 1px solid var(--line); border-radius: 9px; background: white; }
+    .quantity-control button { width: 28px; height: 28px; border: 0; border-radius: 6px; background: var(--saffron-pale); color: var(--saffron-dark); font-size: 18px; line-height: 1; }
+    .quantity-control output { min-width: 14px; text-align: center; font-size: 13px; font-weight: 700; }
+    .empty-state, .panel, .confirmation { padding: 24px 18px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); box-shadow: 0 4px 20px rgb(52 37 22 / 4%); }
+    .empty-state { padding: 40px 18px; text-align: center; }
+    .empty-state h2 { margin-bottom: 5px; }
+    .empty-state p { color: var(--muted); }
+    .text-button { padding: 6px 0; border: 0; background: none; color: var(--saffron-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .cart-layout { display: grid; gap: 20px; align-items: start; }
+    .cart-list { display: grid; gap: 10px; }
+    .cart-row { display: grid; grid-template-columns: 66px minmax(0, 1fr) auto; align-items: center; gap: 11px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .cart-thumb { position: relative; width: 66px; height: 66px; overflow: hidden; border-radius: 9px; background: linear-gradient(135deg, #edb15c, #b85b18); }
+    .cart-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .cart-thumb .image-fallback { font-size: 30px; }
+    .cart-info { min-width: 0; }
+    .cart-info strong { display: block; overflow-wrap: anywhere; font-family: var(--display); font-size: 14px; }
+    .cart-info span { color: var(--muted); font-size: 12px; }
+    .cart-controls { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+    .cart-controls .quantity-control { min-height: 31px; gap: 5px; padding: 2px 4px; }
+    .cart-controls .quantity-control button { width: 24px; height: 24px; font-size: 16px; }
+    .remove-button { padding: 5px; border: 0; background: transparent; color: #9b4134; font-size: 11px; }
+    .line-total { align-self: start; padding-top: 5px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .cart-total { display: flex; justify-content: space-between; gap: 10px; padding: 15px 2px 2px; border-top: 1px solid var(--line); font-size: 17px; font-weight: 700; }
+    .form-grid { display: grid; gap: 14px; margin-top: 20px; }
+    .form-section-title { margin: 0 0 2px; font-family: var(--display); font-size: 21px; }
+    .field { display: grid; gap: 6px; }
+    .field label, .field-label { font-size: 12px; font-weight: 700; }
+    .field-control { padding: 10px 12px; }
+    textarea.field-control { min-height: 86px; resize: vertical; }
+    .field-error { min-height: 0; color: #a12e25; font-size: 12px; }
+    .field-error:not(:empty) { min-height: 16px; }
+    .order-types { display: flex; flex-wrap: wrap; gap: 9px; }
+    .order-type-option { display: inline-flex; align-items: center; gap: 6px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: white; font-size: 12px; }
+    .order-type-option:has(input:checked) { border-color: var(--saffron); background: var(--saffron-pale); }
+    .form-error { color: #a12e25; font-size: 13px; }
+    .confirmation { max-width: 690px; margin: 12px auto; }
+    .confirmation-icon { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 14px; border-radius: 50%; background: #e5f4e9; color: #24733b; font-size: 25px; }
+    .confirmation h2 { margin-bottom: 5px; font-size: 29px; }
+    .order-number { margin: 14px 0; color: var(--saffron-dark); font-size: 20px; font-weight: 700; }
+    .confirmation-list { padding-left: 20px; color: var(--muted); }
+    .confirmation-total { padding-top: 10px; border-top: 1px solid var(--line); font-size: 18px; font-weight: 700; }
+    .qr-settings { display: grid; grid-template-columns: minmax(0, 1fr) 150px; align-items: end; gap: 12px; margin-bottom: 16px; }
+    .qr-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .secondary-button { min-height: 37px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--ink); font-size: 12px; font-weight: 700; }
+    .qr-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .qr-print-page { display: contents; }
+    .qr-card { position: relative; width: 100%; max-width: 390px; padding: 22px; margin-inline: auto; border: 1px solid var(--line); border-radius: 13px; background: white; text-align: center; box-shadow: 0 5px 20px rgb(52 37 22 / 6%); }
+    .qr-brand { margin: 0; font-family: var(--display); font-size: 23px; font-weight: 700; }
+    .qr-location { margin: 2px 0 12px; color: var(--muted); font-size: 11px; }
+    .qr-table-label { margin: 0 0 10px; font-family: var(--display); font-size: 30px; }
+    .qr-image { width: min(68%, 210px); aspect-ratio: 1; image-rendering: pixelated; }
+    .qr-howto { margin-top: 12px; padding: 12px; border: 1px solid #f0dfc8; border-radius: 9px; background: #fff8ef; text-align: left; }
+    .qr-howto strong { font-family: var(--display); font-size: 14px; }
+    .qr-howto ol { margin: 6px 0 0; padding-left: 19px; color: #514840; font-size: 11px; }
+    .qr-howto li + li { margin-top: 3px; }
+    .qr-card-actions { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+    .qr-card-actions .secondary-button { min-height: 33px; padding: 6px 10px; }
+    .staff-login { max-width: 410px; margin: 40px auto; }
+    .staff-login .primary-button { width: 100%; }
+    .staff-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 10px 0 16px; }
+    .staff-toolbar .primary-button { flex: 0 0 auto; }
+    .status-filters { display: flex; gap: 7px; overflow-x: auto; padding: 4px 2px 10px; }
+    .staff-filter { min-height: 34px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 20px; background: white; font-size: 12px; white-space: nowrap; }
+    .staff-filter[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: white; }
+    .orders-list { display: grid; gap: 14px; }
+    .staff-order { padding: 16px; border: 1px solid var(--line); border-left: 4px solid var(--saffron); border-radius: 12px; background: white; box-shadow: 0 4px 16px rgb(52 37 22 / 4%); }
+    .staff-order.is-new { animation: new-order .65s ease-out; }
+    @keyframes new-order { 0% { background: #ffe4b9; } 100% { background: white; } }
+    .staff-order-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+    .staff-order-number { margin: 0; color: var(--saffron-dark); font-size: 12px; font-weight: 700; }
+    .table-number { display: block; margin: 1px 0; font-family: var(--display); font-size: 31px; font-weight: 800; line-height: 1.15; }
+    .staff-customer { margin: 2px 0; font-weight: 700; }
+    .order-badge { align-self: start; padding: 5px 9px; border-radius: 20px; background: var(--saffron-pale); color: #79430f; font-size: 11px; font-weight: 700; }
+    .order-meta { margin: 7px 0 10px; color: var(--muted); font-size: 11px; }
+    .staff-items { margin: 0; padding-left: 19px; font-size: 13px; }
+    .staff-items li + li { margin-top: 3px; }
+    .instructions-box { padding: 9px 10px; margin-top: 10px; border-left: 3px solid var(--saffron); border-radius: 4px; background: #fff6ea; font-size: 12px; }
+    .delivery-details { margin-top: 9px; color: var(--muted); font-size: 12px; white-space: pre-line; }
+    .staff-order-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--line); }
+    .staff-total { font-weight: 700; }
+    .status-controls { display: flex; flex-wrap: wrap; gap: 6px; }
+    .status-button { padding: 6px 9px; border: 1px solid var(--line); border-radius: 7px; background: white; font-size: 11px; }
+    .status-button[aria-pressed="true"] { border-color: var(--green); background: #e9f5ec; color: #1d6030; font-weight: 700; }
+    .delete-order { padding: 6px 8px; border: 0; background: none; color: #a12e25; font-size: 11px; font-weight: 700; }
+    .delete-confirm { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 9px; margin-top: 10px; border: 1px solid #edc4bc; border-radius: 8px; background: #fff2ef; font-size: 12px; }
+    .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px max(18px, calc((100% - 1084px) / 2)); border-top: 1px solid var(--line); background: #f5efe7; color: var(--muted); font-size: 11px; }
+    .site-footer strong { color: var(--ink); font-family: var(--display); font-size: 14px; }
+    .site-footer a { color: var(--muted); text-decoration: none; }
+    .site-footer a:hover { color: var(--saffron-dark); text-decoration: underline; }
+    .floating-cart { position: fixed; z-index: 19; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); display: none; align-items: center; gap: 9px; padding: 13px 17px; border: 0; border-radius: 28px; background: var(--ink); color: white; box-shadow: 0 6px 22px rgb(0 0 0 / 23%); font-size: 13px; font-weight: 700; }
+    .floating-cart.visible { display: inline-flex; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @media (min-width: 620px) {
+      .header-inner { padding-inline: 24px; }
+      .page { padding: 40px 24px 80px; }
+      .menu-tools { grid-template-columns: 1fr auto; align-items: center; }
+      .filter-row { justify-content: flex-end; }
+      .category-strip { margin-inline: -24px; padding-inline: 24px; }
+      .menu-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .dish-copy { padding: 13px; }
+      .dish-name { font-size: 17px; }
+      .dish-description { min-height: 34px; font-size: 12px; }
+      .cart-layout { grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); }
+      .cart-form { margin-top: 0; }
+      .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .site-footer { padding-inline: 24px; }
+    }
+    @media (min-width: 900px) {
+      .menu-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+      .qr-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 420px) {
+      .header-inner { min-height: 64px; padding-inline: 11px; gap: 7px; }
+      .brand { gap: 7px; }
+      .brand-mark { width: 34px; height: 34px; font-size: 20px; }
+      .brand-name { font-size: 16px; }
+      .brand-location { font-size: 9px; }
+      .main-nav { gap: 9px; }
+      .main-nav a { font-size: 11px; }
+      .page { padding-inline: 14px; }
+      .category-strip { top: 64px; margin-inline: -14px; padding-inline: 14px; }
+      .menu-grid { gap: 9px; }
+      .dish-copy { padding: 9px 8px 10px; }
+      .dish-name { font-size: 14px; }
+      .dish-description { font-size: 10px; }
+      .price { font-size: 12px; }
+      .add-button { min-height: 34px; padding-inline: 11px; }
+      .qr-settings { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+    @page { size: A4 portrait; margin: 12mm; }
+    @media print {
+      body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body * { visibility: hidden !important; }
+      #qr-page, #qr-page * { visibility: visible !important; }
+      #qr-page { position: absolute; inset: 0 auto auto 0; display: block !important; width: 100%; max-width: none; min-height: 0; padding: 0; margin: 0; }
+      .qr-grid { display: block !important; }
+      .qr-print-page { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 8mm; break-after: page; page-break-after: always; }
+      .qr-print-page:last-child { break-after: auto; page-break-after: auto; }
+      .qr-card { width: 100%; max-width: none; padding: 7mm; border: 1px solid #d5c7b7; border-radius: 0; box-shadow: none; break-inside: avoid; page-break-inside: avoid; }
+      #qr-page > :not(.panel) { display: none !important; }
+      #qr-page .panel { display: block; padding: 0; border: 0; box-shadow: none; }
+      #qr-page .panel > :not(.qr-grid) { display: none !important; }
+      .qr-card-actions { display: none !important; }
+      .qr-brand { font-size: 18pt; }
+      .qr-table-label { font-size: 25pt; }
+      .qr-image { width: 44mm; }
+      .qr-howto { padding: 3mm; }
+      .qr-howto ol { font-size: 8pt; }
+      .site-header, .site-footer, .demo-banner, .connection-banner, .floating-cart { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#menu" aria-label="Saffron Table home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span class="brand-copy"><span class="brand-name">Saffron Table</span><span class="brand-location">INDORE, MADHYA PRADESH</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#menu" data-route="menu">Our Menu</a>
+        <a href="#cart" class="nav-cart" data-route="cart">Cart <span class="count-badge" id="cart-count">0</span></a>
+        <a href="#qr" class="nav-qr" data-route="qr">QR Codes</a>
+      </nav>
+    </div>
+  </header>
+  <div class="demo-banner" id="demo-banner" hidden role="status">Demo mode: orders are saved only on this device</div>
+  <div class="connection-banner" id="connection-banner" hidden role="alert"></div>
+  <main>
+    <section class="page active" id="menu-page" aria-labelledby="menu-heading">
+      <div class="menu-hero">
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="A freshly prepared, colourful meal served at Saffron Table" fetchpriority="high">
+      </div>
+      <span class="eyebrow">Good food, good company</span>
+      <h1 id="menu-heading">Our Menu</h1>
+      <p class="intro">A little Indore warmth, freshly made for your table.</p>
+      <div class="menu-tools">
+        <label class="search-wrap"><span class="sr-only">Search dishes</span><input id="menu-search" class="search-input" type="search" placeholder="Search paneer tikka, biryani, masala…" autocomplete="off"></label>
+        <div class="filter-row" role="group" aria-label="Dietary filter">
+          <span class="filter-label">Show:</span>
+          <button type="button" class="filter-button" data-type-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter-button" data-type-filter="veg" aria-pressed="false">● Veg</button>
+          <button type="button" class="filter-button" data-type-filter="nonveg" aria-pressed="false">● Non-Veg</button>
+        </div>
+      </div>
+      <div class="category-strip"><div class="category-tabs" id="category-tabs" role="group" aria-label="Menu category"></div></div>
+      <div class="menu-grid" id="menu-grid" aria-live="polite"></div>
+      <div class="empty-state" id="menu-empty" hidden>
+        <h2>No dishes found</h2><p>Try a different search or clear the filters.</p>
+        <button type="button" class="primary-button" id="clear-filters">Clear filters</button>
+      </div>
+    </section>
+    <section class="page" id="cart-page" aria-labelledby="cart-heading">
+      <span class="eyebrow">Almost there</span><h1 id="cart-heading">Your Cart</h1>
+      <div id="cart-content"></div>
+    </section>
+    <section class="page" id="qr-page" aria-labelledby="qr-heading">
+      <span class="eyebrow">A seat at your table</span><h1 id="qr-heading">Table QR Codes</h1>
+      <p class="intro">Create print-ready table cards that take guests straight to your menu.</p>
+      <div class="panel">
+        <div class="qr-settings">
+          <div class="field"><label for="menu-address">Menu Website Address</label><input id="menu-address" class="field-control" type="url" placeholder="https://your-restaurant.example" autocomplete="url"><span class="field-error" id="qr-address-error"></span></div>
+          <div class="field"><label for="table-count">Number of tables</label><input id="table-count" class="field-control" type="number" value="10" min="1" max="100" step="1"></div>
+        </div>
+        <div class="qr-actions">
+          <button class="primary-button" id="generate-qr" type="button">Generate QR Codes</button>
+          <button class="secondary-button" id="download-all-png" type="button">Download all as PNG</button>
+          <button class="secondary-button" id="download-all-svg" type="button">Download all as SVG</button>
+          <button class="secondary-button" id="print-all" type="button">Print all</button>
+        </div>
+        <p class="field-error" id="qr-general-error" role="status"></p>
+        <div class="qr-grid" id="qr-grid"></div>
+      </div>
+    </section>
+    <section class="page" id="staff-page" aria-labelledby="staff-heading">
+      <span class="eyebrow">Team dashboard</span><h1 id="staff-heading">Staff Orders</h1>
+      <div id="staff-content"></div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span><strong>Saffron Table</strong><br>Indore, Madhya Pradesh</span>
+    <a href="#staff" aria-label="Staff login">Staff</a>
+  </footer>
+  <button type="button" id="floating-cart" class="floating-cart" aria-label="View cart">View Cart <span class="count-badge" id="floating-cart-count">0</span></button>
+
+  <script type="module">
+    // CONFIG
+    // Create a Firebase project at https://console.firebase.google.com, add a Web app,
+    // enable Cloud Firestore, and paste its config values below. Configure Firestore
+    // security rules for your deployment before going live. Empty values enable demo mode.
+    const FIREBASE_CONFIG = {
+      apiKey: "",
+      authDomain: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
+    };
+    // This client-side staff code is only a light barrier; real security needs server-side auth.
+    const STAFF_CODE = "4040";
+    const CART_KEY = "saffronTableCart";
+    const DEMO_ORDERS_KEY = "saffronTableOrders";
+    const STAFF_SESSION_KEY = "saffronTableStaff";
+    const WEBSITE_KEY = "saffronTableWebsite";
+
+    // MENU DATA — replace descriptions, prices, and image URLs with your restaurant's details.
+    // Each dish has a distinct Wikimedia Commons photo and an author/license attribution link.
+    // Replace both image and credit fields if you update a photo; local /images photos need no remote request.
+    const MENU_DATA = [
+      { id: "paneer-tikka", name: "Paneer Tikka", category: "Starter", type: "veg", price: 289, description: "Char-grilled paneer, peppers and house tandoori marinade.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Panir_Tikka_Indian_cheese_grilled.jpg/960px-Panir_Tikka_Indian_cheese_grilled.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Panir_Tikka_Indian_cheese_grilled.jpg", imageCredit: "Sonja Pauen - Stanhopea", imageLicense: "CC BY 2.0 de"},
+      { id: "hara-bhara-kabab", name: "Hara Bhara Kabab", category: "Starter", type: "veg", price: 229, description: "Spinach, peas and potato patties with mint chutney.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Hara_bhara_kabab-.JPG/960px-Hara_bhara_kabab-.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Hara_bhara_kabab-.JPG", imageCredit: "Kanikatwl", imageLicense: "CC BY-SA 4.0"},
+      { id: "veg-seekh-kabab", name: "Veg Seekh Kabab", category: "Starter", type: "veg", price: 249, description: "Smoky garden vegetables and spices, grilled on skewers.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Veg_Seekh_kebab.jpg/960px-Veg_Seekh_kebab.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Veg_Seekh_kebab.jpg", imageCredit: "Meghana Mohanty", imageLicense: "CC BY-SA 4.0"},
+      { id: "crispy-corn", name: "Crispy Corn", category: "Starter", type: "veg", price: 219, description: "Golden corn tossed with chilli, herbs and a squeeze of lime.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Crispy_chilli_baby_corn.....jpg/960px-Crispy_chilli_baby_corn.....jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Crispy_chilli_baby_corn.....jpg", imageCredit: "Dikshita Bairagi", imageLicense: "CC BY-SA 4.0"},
+      { id: "chicken-tikka", name: "Chicken Tikka", category: "Starter", type: "nonveg", price: 349, description: "Boneless chicken in a gently spiced yoghurt marinade.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Chicken_tikka_in_Araku_Valley%2C_Andhra_Pradesh_01.jpg/960px-Chicken_tikka_in_Araku_Valley%2C_Andhra_Pradesh_01.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_tikka_in_Araku_Valley,_Andhra_Pradesh_01.jpg", imageCredit: "Satdeep Gill", imageLicense: "CC BY-SA 4.0"},
+      { id: "tandoori-chicken", name: "Tandoori Chicken", category: "Starter", type: "nonveg", price: 389, description: "Classic clay-oven chicken, charred at the edges and juicy inside.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Tandoori_chicken_Indian.jpg/960px-Tandoori_chicken_Indian.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Tandoori_chicken_Indian.jpg", imageCredit: "pelican", imageLicense: "CC BY-SA 2.0"},
+      { id: "fish-amritsari", name: "Fish Amritsari", category: "Starter", type: "nonveg", price: 369, description: "Crisp, gram-flour fried fish with ajwain and lemon.", image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Amritsari_Fried_Fish-_Amritsar-Punjab_IMG_04.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Amritsari_Fried_Fish-_Amritsar-Punjab_IMG_04.jpg", imageCredit: "Jhuma Datta", imageLicense: "CC BY-SA 4.0"},
+      { id: "chicken-65", name: "Chicken 65", category: "Starter", type: "nonveg", price: 329, description: "South Indian-style fried chicken with curry leaves and chilli.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Chicken_65_%28Dish%29.jpg/960px-Chicken_65_%28Dish%29.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_65_(Dish).jpg", imageCredit: "Amiyashrivastava", imageLicense: "CC BY-SA 3.0"},
+      { id: "dahi-ke-kebab", name: "Dahi ke Kebab", category: "Starter", type: "veg", price: 249, description: "Golden hung-curd kebabs with herbs and a crisp crumb.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Dahi_ke_Kebabs.JPG/960px-Dahi_ke_Kebabs.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Dahi_ke_Kebabs.JPG", imageCredit: "Mayurbhandari", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "paneer-butter-masala", name: "Paneer Butter Masala", category: "Main Course", type: "veg", price: 319, description: "Soft paneer in a buttery tomato and cashew gravy.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Paneer_butter_masala_2.jpg/960px-Paneer_butter_masala_2.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Paneer_butter_masala_2.jpg", imageCredit: "Gannu03", imageLicense: "CC BY-SA 4.0"},
+      { id: "kadai-paneer", name: "Kadai Paneer", category: "Main Course", type: "veg", price: 309, description: "Paneer, peppers and crushed spices in kadai masala.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Kadai_paneer_with_garlic_naan.jpg/960px-Kadai_paneer_with_garlic_naan.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Kadai_paneer_with_garlic_naan.jpg", imageCredit: "YKanchan07", imageLicense: "CC BY-SA 4.0"},
+      { id: "dal-makhani", name: "Dal Makhani", category: "Main Course", type: "veg", price: 279, description: "Slow-simmered black lentils finished with cream and butter.", image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Dal_Makhani.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Dal_Makhani.jpg", imageCredit: "Charles Haynes", imageLicense: "CC BY-SA 2.0"},
+      { id: "shahi-paneer", name: "Shahi Paneer", category: "Main Course", type: "veg", price: 329, description: "Paneer in a delicately spiced, silky cashew cream sauce.", image: "https://upload.wikimedia.org/wikipedia/commons/5/58/Shahi_Paneer_%26_Butter_Naan.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Shahi_Paneer_%26_Butter_Naan.jpg", imageCredit: "Shashank7200", imageLicense: "CC BY-SA 4.0"},
+      { id: "mix-veg", name: "Mix Veg", category: "Main Course", type: "veg", price: 259, description: "Seasonal vegetables cooked with homestyle Indian masala.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Mix_Veg_Soup_1.jpg/960px-Mix_Veg_Soup_1.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Mix_Veg_Soup_1.jpg", imageCredit: "Gaurav Dhwaj Khadka", imageLicense: "CC BY-SA 4.0"},
+      { id: "butter-chicken", name: "Butter Chicken", category: "Main Course", type: "nonveg", price: 389, description: "Tandoori chicken in a velvety tomato, butter and cream gravy.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Chicken_makhani.jpg/960px-Chicken_makhani.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_makhani.jpg", imageCredit: "stu_spivack", imageLicense: "CC BY-SA 2.0"},
+      { id: "chicken-curry", name: "Chicken Curry", category: "Main Course", type: "nonveg", price: 359, description: "Tender chicken simmered in a fragrant onion-tomato curry.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Chicken_Curry_9.jpg/960px-Chicken_Curry_9.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_Curry_9.jpg", imageCredit: "Gaurav Dhwaj Khadka", imageLicense: "CC BY-SA 4.0"},
+      { id: "mutton-rogan-josh", name: "Mutton Rogan Josh", category: "Main Course", type: "nonveg", price: 459, description: "Slow-cooked mutton in aromatic Kashmiri-style spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Mutton_Rogan_Josh_curry.jpg/960px-Mutton_Rogan_Josh_curry.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Mutton_Rogan_Josh_curry.jpg", imageCredit: "Kajori.p", imageLicense: "CC BY-SA 4.0"},
+      { id: "egg-curry", name: "Egg Curry", category: "Main Course", type: "nonveg", price: 269, description: "Boiled eggs in a comforting onion, tomato and spice gravy.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Spicy_Anda_Curry.jpg/960px-Spicy_Anda_Curry.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Spicy_Anda_Curry.jpg", imageCredit: "https://onlybestrecipes.com/egg-curry-recipeegg-curry-recipe/", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "butter-naan", name: "Butter Naan", category: "Bread", type: "veg", price: 59, description: "Soft tandoor-baked leavened bread brushed with butter.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/New_Punjab_Club_food_spread.jpg/960px-New_Punjab_Club_food_spread.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:New_Punjab_Club_food_spread.jpg", imageCredit: "Hongkongfoodlover123", imageLicense: "CC BY-SA 4.0"},
+      { id: "garlic-naan", name: "Garlic Naan", category: "Bread", type: "veg", price: 75, description: "Tandoor naan topped with fresh garlic and coriander.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Garlic_naan_1.jpg/960px-Garlic_naan_1.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Garlic_naan_1.jpg", imageCredit: "Joy", imageLicense: "CC BY 2.0"},
+      { id: "tandoori-roti", name: "Tandoori Roti", category: "Bread", type: "veg", price: 35, description: "Whole-wheat roti baked in the clay oven.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Tandoori_Roti_in_clay_oven.JPG/960px-Tandoori_Roti_in_clay_oven.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Tandoori_Roti_in_clay_oven.JPG", imageCredit: "Kamalsahansi", imageLicense: "CC BY-SA 4.0"},
+      { id: "lachha-paratha", name: "Lachha Paratha", category: "Bread", type: "veg", price: 69, description: "Flaky, layered whole-wheat paratha from the tandoor.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Lachha-paratha.jpg/960px-Lachha-paratha.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Lachha-paratha.jpg", imageCredit: "Sonia Goyal", imageLicense: "CC BY-SA 2.0"},
+      { id: "missi-roti", name: "Missi Roti", category: "Bread", type: "veg", price: 55, description: "Rustic gram-flour and wheat flatbread with mild spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Tandoori_Missi_Roti_with_malai.JPG/960px-Tandoori_Missi_Roti_with_malai.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Tandoori_Missi_Roti_with_malai.JPG", imageCredit: "Hartej.hundal", imageLicense: "CC BY-SA 4.0"},
+      { id: "kulcha", name: "Amritsari Kulcha", category: "Bread", type: "veg", price: 89, description: "Golden leavened bread stuffed with spiced potato.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Amritsari_kulcha_chana.jpg/960px-Amritsari_kulcha_chana.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Amritsari_kulcha_chana.jpg", imageCredit: "LittleT889", imageLicense: "CC BY 4.0"},
+      { id: "roomali-roti", name: "Roomali Roti", category: "Bread", type: "veg", price: 49, description: "Paper-thin, hand-tossed wheat bread served warm.", image: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Flying_Roomali_Roti.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Flying_Roomali_Roti.jpg", imageCredit: "Ramesh Lalwani", imageLicense: "CC BY 2.0"},
+      { id: "cheese-naan", name: "Cheese Naan", category: "Bread", type: "veg", price: 109, description: "Soft naan filled with melting cheese and herbs.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Cheese_naan_of_Gokarna_IMG_20181203_131623.jpg/960px-Cheese_naan_of_Gokarna_IMG_20181203_131623.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Cheese_naan_of_Gokarna_IMG_20181203_131623.jpg", imageCredit: "Ambadyanands", imageLicense: "CC BY-SA 4.0"},
+      { id: "paneer-kulcha", name: "Paneer Kulcha", category: "Bread", type: "veg", price: 109, description: "Tandoor-baked kulcha filled with spiced paneer.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Butter_kulcha_-_paneer_chana.jpg/960px-Butter_kulcha_-_paneer_chana.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Butter_kulcha_-_paneer_chana.jpg", imageCredit: "Kulkarni, Vibhas", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "jeera-rice", name: "Jeera Rice", category: "Rice", type: "veg", price: 189, description: "Basmati rice tempered with toasted cumin and ghee.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Jeera-rice.JPG/960px-Jeera-rice.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Jeera-rice.JPG", imageCredit: "Sonia Goyal", imageLicense: "CC BY-SA 2.0"},
+      { id: "veg-pulao", name: "Veg Pulao", category: "Rice", type: "veg", price: 219, description: "Fragrant basmati with seasonal vegetables and whole spices.", image: "https://upload.wikimedia.org/wikipedia/commons/0/00/Veg_pulao%2C_self-cooked%2C_Roing%2C_Arunachal_Pradesh%2C_jpg.0002.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Veg_pulao,_self-cooked,_Roing,_Arunachal_Pradesh,_jpg.0002.jpg", imageCredit: "Abhi881991", imageLicense: "CC BY-SA 4.0"},
+      { id: "steamed-rice", name: "Steamed Rice", category: "Rice", type: "veg", price: 149, description: "Light, fluffy basmati rice steamed to order.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Chinese_Steamed_Rice_Noodle_Rolls_02.jpg/960px-Chinese_Steamed_Rice_Noodle_Rolls_02.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chinese_Steamed_Rice_Noodle_Rolls_02.jpg", imageCredit: "Boonlert", imageLicense: "CC0"},
+      { id: "dal-khichdi", name: "Dal Khichdi", category: "Rice", type: "veg", price: 229, description: "Comforting rice and lentils finished with a cumin tadka.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Khichri_with_omelette.jpg/960px-Khichri_with_omelette.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Khichri_with_omelette.jpg", imageCredit: "Dr. Asif Md. Rezaur Rahman", imageLicense: "CC BY-SA 4.0"},
+      { id: "curd-rice", name: "Curd Rice", category: "Rice", type: "veg", price: 179, description: "Cooling rice and yoghurt with mustard seed tempering.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Curd_rice_in_ICH_Bhopal.jpg/960px-Curd_rice_in_ICH_Bhopal.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Curd_rice_in_ICH_Bhopal.jpg", imageCredit: "Suyash Dwivedi", imageLicense: "CC BY-SA 4.0"},
+      { id: "matar-pulao", name: "Matar Pulao", category: "Rice", type: "veg", price: 199, description: "Basmati rice cooked with sweet green peas and spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Matar_Pulao_-_Mohali_2016-08-06_8222.JPG/960px-Matar_Pulao_-_Mohali_2016-08-06_8222.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Matar_Pulao_-_Mohali_2016-08-06_8222.JPG", imageCredit: "Biswarup Ganguly", imageLicense: "CC BY 3.0"},
+      { id: "lemon-rice", name: "Lemon Rice", category: "Rice", type: "veg", price: 189, description: "South Indian-style rice with lemon, curry leaves and peanuts.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Lemon_Rice_in_Kerala.jpg/960px-Lemon_Rice_in_Kerala.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Lemon_Rice_in_Kerala.jpg", imageCredit: "Ganesh Gore", imageLicense: "CC BY-SA 4.0"},
+      { id: "egg-fried-rice", name: "Egg Fried Rice", category: "Rice", type: "nonveg", price: 239, description: "Wok-tossed rice with egg, spring onion and light seasoning.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Egg_Fried_Rice.jpg/960px-Egg_Fried_Rice.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Egg_Fried_Rice.jpg", imageCredit: "Gaurav Dhwaj Khadka", imageLicense: "CC BY-SA 4.0"},
+      { id: "chicken-pulao", name: "Chicken Pulao", category: "Rice", type: "nonveg", price: 299, description: "Fragrant basmati cooked with tender chicken and whole spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicken_Yakhni_Pulao.jpg/960px-Chicken_Yakhni_Pulao.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_Yakhni_Pulao.jpg", imageCredit: "Vilalali", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "veg-biryani", name: "Veg Biryani", category: "Biryani", type: "veg", price: 279, description: "Dum-cooked basmati layered with vegetables and saffron.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Veg_biryani.jpg/960px-Veg_biryani.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Veg_biryani.jpg", imageCredit: "Ramesh bethi", imageLicense: "CC BY-SA 4.0"},
+      { id: "paneer-biryani", name: "Paneer Biryani", category: "Biryani", type: "veg", price: 319, description: "Fragrant dum biryani with marinated paneer and mint.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Biryani_in_Hyderabad.jpg/960px-Biryani_in_Hyderabad.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Biryani_in_Hyderabad.jpg", imageCredit: "Medhi jyoti", imageLicense: "CC BY 4.0"},
+      { id: "hyderabadi-chicken-biryani", name: "Hyderabadi Chicken Biryani", category: "Biryani", type: "nonveg", price: 369, description: "Layered basmati and spiced chicken, slow-cooked dum style.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Shrimp_Biriyani.JPG/960px-Shrimp_Biriyani.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Shrimp_Biriyani.JPG", imageCredit: "Jyothis", imageLicense: "CC BY-SA 3.0"},
+      { id: "mutton-biryani", name: "Mutton Biryani", category: "Biryani", type: "nonveg", price: 429, description: "Tender mutton and aromatic rice with fried onions.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/A_home_made_plate_of_mutton_biryani_served_with_chicken_kassa_cooked_in_the_bengali_style.jpg/960px-A_home_made_plate_of_mutton_biryani_served_with_chicken_kassa_cooked_in_the_bengali_style.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:A_home_made_plate_of_mutton_biryani_served_with_chicken_kassa_cooked_in_the_bengali_style.jpg", imageCredit: "Subhrajyoti07", imageLicense: "CC BY-SA 4.0"},
+      { id: "egg-biryani", name: "Egg Biryani", category: "Biryani", type: "nonveg", price: 289, description: "Dum-style basmati biryani with masala-coated boiled eggs.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Egg_Biryani_in_a_restaurant.jpg/960px-Egg_Biryani_in_a_restaurant.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Egg_Biryani_in_a_restaurant.jpg", imageCredit: "Medhi jyoti", imageLicense: "CC BY-SA 4.0"},
+      { id: "biryani-masala", name: "Biryani Masala", category: "Biryani", type: "veg", price: 299, description: "A bold, spicy vegetable biryani with a house masala blend.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Garam_masala_used_for_making_Biryani_and_Hyderabadi_Haleem.jpg/960px-Garam_masala_used_for_making_Biryani_and_Hyderabadi_Haleem.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Garam_masala_used_for_making_Biryani_and_Hyderabadi_Haleem.jpg", imageCredit: "Breville USA", imageLicense: "CC BY 2.0"},
+      { id: "chicken-tikka-biryani", name: "Chicken Tikka Biryani", category: "Biryani", type: "nonveg", price: 389, description: "Smoky chicken tikka layered with saffron basmati rice.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Chicken_tikka_biryani.jpg/960px-Chicken_tikka_biryani.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_tikka_biryani.jpg", imageCredit: "pelican", imageLicense: "CC BY-SA 2.0"},
+      { id: "prawn-biryani", name: "Prawn Biryani", category: "Biryani", type: "nonveg", price: 449, description: "Juicy prawns with coastal spices and fragrant rice.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Prawn_Biryani%2C_Hyderabad.jpg/960px-Prawn_Biryani%2C_Hyderabad.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Prawn_Biryani,_Hyderabad.jpg", imageCredit: "Abhinaba Basu", imageLicense: "CC BY 2.0"},
+      { id: "lucknowi-veg-biryani", name: "Lucknowi Veg Biryani", category: "Biryani", type: "veg", price: 299, description: "Delicate dum-cooked basmati with vegetables and whole spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Lucknowi%27s_Famous_Dum_Biryani.jpg/960px-Lucknowi%27s_Famous_Dum_Biryani.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Lucknowi%27s_Famous_Dum_Biryani.jpg", imageCredit: "Fatimahope", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "poha-jalebi", name: "Poha Jalebi", category: "Indori", type: "veg", price: 119, description: "Indore's beloved poha and warm, syrupy jalebi pairing.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Poha_the_staple_breakfast_of_India%2C_with_Jalebi.jpg/960px-Poha_the_staple_breakfast_of_India%2C_with_Jalebi.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Poha_the_staple_breakfast_of_India,_with_Jalebi.jpg", imageCredit: "Rhundet", imageLicense: "CC BY-SA 4.0"},
+      { id: "bhutte-ka-kees", name: "Bhutte ka Kees", category: "Indori", type: "veg", price: 149, description: "Grated sweet corn slow-cooked with milk and gentle spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Chickpea_curry_on_rotini%2C_with_corn%2C_hot_mixed_Indian_pickles%2C_peanuts%2C_curry_powder%2C_and_black_pepper_-_Massachusetts.jpg/960px-Chickpea_curry_on_rotini%2C_with_corn%2C_hot_mixed_Indian_pickles%2C_peanuts%2C_curry_powder%2C_and_black_pepper_-_Massachusetts.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chickpea_curry_on_rotini,_with_corn,_hot_mixed_Indian_pickles,_peanuts,_curry_powder,_and_black_pepper_-_Massachusetts.jpg", imageCredit: "Daderot", imageLicense: "CC0"},
+      { id: "sabudana-khichdi", name: "Sabudana Khichdi", category: "Indori", type: "veg", price: 139, description: "Pearl tapioca tossed with peanuts, potato and lemon.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Sabudana_Khichdi_with_Sweet_curd.JPG/960px-Sabudana_Khichdi_with_Sweet_curd.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Sabudana_Khichdi_with_Sweet_curd.JPG", imageCredit: "Dheerajk88", imageLicense: "CC BY-SA 4.0"},
+      { id: "garadu", name: "Garadu", category: "Indori", type: "veg", price: 159, description: "Crisp fried yam tossed in Indori masala and lime.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Garadu_Gaga_2023-03-09-3.jpg/960px-Garadu_Gaga_2023-03-09-3.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Garadu_Gaga_2023-03-09-3.jpg", imageCredit: "Alexey Komarov", imageLicense: "CC BY-SA 4.0"},
+      { id: "dal-bafla", name: "Dal Bafla", category: "Indori", type: "veg", price: 249, description: "Baked wheat bafla, rich dal and a touch of ghee.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Authentic-rajasthani-dal-bati---Folk-Cuisine.jpg/960px-Authentic-rajasthani-dal-bati---Folk-Cuisine.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Authentic-rajasthani-dal-bati---Folk-Cuisine.jpg", imageCredit: "Bhuppigraphy", imageLicense: "CC BY-SA 4.0"},
+      { id: "indori-samosa-kachori", name: "Indori Samosa Kachori", category: "Indori", type: "veg", price: 129, description: "Flaky, spiced local favourites served with chutney.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/KachoriSamosa_HomeMade_Mumbai.jpg/960px-KachoriSamosa_HomeMade_Mumbai.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:KachoriSamosa_HomeMade_Mumbai.jpg", imageCredit: "Shah Naisargi", imageLicense: "CC BY-SA 4.0"},
+      { id: "sev-tamatar-sabzi", name: "Sev Tamatar Sabzi", category: "Indori", type: "veg", price: 199, description: "Tangy tomato curry topped generously with crunchy sev.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/South_Indian_Spice_Fried_Curry_with_Tomato_Chutney.jpg/960px-South_Indian_Spice_Fried_Curry_with_Tomato_Chutney.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:South_Indian_Spice_Fried_Curry_with_Tomato_Chutney.jpg", imageCredit: "Muskaan Shaikh1", imageLicense: "CC BY-SA 4.0"},
+      { id: "khopra-patties", name: "Khopra Patties", category: "Indori", type: "veg", price: 139, description: "Crisp potato patties with a sweet-and-spicy coconut centre.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Aloo_Tikki_served_with_chutneys.jpg/960px-Aloo_Tikki_served_with_chutneys.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Aloo_Tikki_served_with_chutneys.jpg", imageCredit: "Raveesh Vyas", imageLicense: "CC BY-SA 2.0"},
+      { id: "mawa-bati", name: "Mawa Bati", category: "Indori", type: "veg", price: 119, description: "Indori-style fried milk dumpling with a lightly sweet centre.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/Choorma_ladoo.jpg/960px-Choorma_ladoo.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Choorma_ladoo.jpg", imageCredit: "Pushpendra Payal", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "veg-hakka-noodles", name: "Veg Hakka Noodles", category: "Chinese", type: "veg", price: 229, description: "Wok-tossed noodles with crunchy vegetables and soy.", image: "https://upload.wikimedia.org/wikipedia/commons/9/9f/Hakka_Noodles%2C_Veg_Manchurian_PK009.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Hakka_Noodles,_Veg_Manchurian_PK009.jpg", imageCredit: "PallaviKhale", imageLicense: "CC BY-SA 4.0"},
+      { id: "chilli-paneer", name: "Chilli Paneer", category: "Chinese", type: "veg", price: 279, description: "Crisp paneer tossed with peppers in a chilli-soy glaze.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Chilly_Paneer_01.jpg/960px-Chilly_Paneer_01.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chilly_Paneer_01.jpg", imageCredit: "Marajozkee", imageLicense: "CC BY-SA 4.0"},
+      { id: "veg-manchurian", name: "Veg Manchurian", category: "Chinese", type: "veg", price: 249, description: "Vegetable dumplings in a savoury Indo-Chinese sauce.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Homemade_Veg_Manchurian_and_fried_rice.jpg/960px-Homemade_Veg_Manchurian_and_fried_rice.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Homemade_Veg_Manchurian_and_fried_rice.jpg", imageCredit: "Nehabca24", imageLicense: "CC BY-SA 4.0"},
+      { id: "schezwan-fried-rice", name: "Schezwan Fried Rice", category: "Chinese", type: "veg", price: 239, description: "Wok-fried rice with vegetables and house Schezwan sauce.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Schezwan_Egg_Fried_Rice_with_raitha_03.jpg/960px-Schezwan_Egg_Fried_Rice_with_raitha_03.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Schezwan_Egg_Fried_Rice_with_raitha_03.jpg", imageCredit: "Nandhinikandhasamy", imageLicense: "CC BY-SA 4.0"},
+      { id: "chicken-hakka-noodles", name: "Chicken Hakka Noodles", category: "Chinese", type: "nonveg", price: 279, description: "Wok-tossed noodles with chicken, vegetables and soy.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Hakka_noodles_combo-roadside_stall-Dacre%27s_lane-West_Bengal-01.jpg/960px-Hakka_noodles_combo-roadside_stall-Dacre%27s_lane-West_Bengal-01.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Hakka_noodles_combo-roadside_stall-Dacre%27s_lane-West_Bengal-01.jpg", imageCredit: "Shockv1", imageLicense: "CC BY-SA 4.0"},
+      { id: "chilli-chicken", name: "Chilli Chicken", category: "Chinese", type: "nonveg", price: 319, description: "Tender chicken with peppers, spring onion and chilli.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Chicken_Chilli_1.jpg/960px-Chicken_Chilli_1.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_Chilli_1.jpg", imageCredit: "Gaurav Dhwaj Khadka", imageLicense: "CC BY-SA 4.0"},
+      { id: "veg-spring-roll", name: "Veg Spring Roll", category: "Chinese", type: "veg", price: 199, description: "Crisp rolls filled with cabbage, carrot and noodles.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Veg_spring_roll.jpg/960px-Veg_spring_roll.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Veg_spring_roll.jpg", imageCredit: "YKanchan07", imageLicense: "CC BY-SA 4.0"},
+      { id: "hot-and-sour-soup", name: "Hot and Sour Soup", category: "Chinese", type: "veg", price: 149, description: "Peppery, tangy soup with mushrooms and fresh vegetables.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Hot-and-Sour-Soup-Bowl.jpg/960px-Hot-and-Sour-Soup-Bowl.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Hot-and-Sour-Soup-Bowl.jpg", imageCredit: "Evan-Amos", imageLicense: "Public domain"},
+      { id: "chicken-manchurian", name: "Chicken Manchurian", category: "Chinese", type: "nonveg", price: 329, description: "Crisp chicken tossed in a savoury ginger-garlic sauce.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Chicken_Manchurian_%28Hyderabad_Style%29_%2811960049916%29.jpg/960px-Chicken_Manchurian_%28Hyderabad_Style%29_%2811960049916%29.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Chicken_Manchurian_(Hyderabad_Style)_(11960049916).jpg", imageCredit: "Abhinaba Basu from Redmond, United States", imageLicense: "CC BY 2.0"},
+
+      { id: "gulab-jamun", name: "Gulab Jamun", category: "Dessert", type: "veg", price: 99, description: "Two soft milk-solid dumplings in fragrant warm syrup.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Two_Gulab_Jamun_in_a_plate_01.jpg/960px-Two_Gulab_Jamun_in_a_plate_01.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Two_Gulab_Jamun_in_a_plate_01.jpg", imageCredit: "Suyash.dwivedi", imageLicense: "CC BY-SA 4.0"},
+      { id: "rasmalai", name: "Rasmalai", category: "Dessert", type: "veg", price: 139, description: "Soft chenna discs in chilled saffron and cardamom milk.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Rasmalai_with_carrot.jpg/960px-Rasmalai_with_carrot.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Rasmalai_with_carrot.jpg", imageCredit: "Shreya13jain", imageLicense: "CC BY-SA 4.0"},
+      { id: "moong-dal-halwa", name: "Moong Dal Halwa", category: "Dessert", type: "veg", price: 169, description: "Traditional slow-roasted lentil halwa with nuts and ghee.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Moong_Dal_Halwa_and_Mysore_Pak_Sweet_Dish_Desert.jpg/960px-Moong_Dal_Halwa_and_Mysore_Pak_Sweet_Dish_Desert.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Moong_Dal_Halwa_and_Mysore_Pak_Sweet_Dish_Desert.jpg", imageCredit: "Dev Jadiya", imageLicense: "CC BY-SA 4.0"},
+      { id: "gajar-halwa", name: "Gajar Halwa", category: "Dessert", type: "veg", price: 149, description: "Slow-cooked carrot pudding with milk, ghee and almonds.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Delicious_Gajar_Ka_Halwa.jpg/960px-Delicious_Gajar_Ka_Halwa.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Delicious_Gajar_Ka_Halwa.jpg", imageCredit: "Sharvarism", imageLicense: "CC BY-SA 4.0"},
+      { id: "kulfi", name: "Malai Kulfi", category: "Dessert", type: "veg", price: 109, description: "Creamy traditional frozen kulfi with pistachio.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Kulfi_malai_ice-cream.jpg/960px-Kulfi_malai_ice-cream.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Kulfi_malai_ice-cream.jpg", imageCredit: "Rajeeb ( Marajozkee )", imageLicense: "CC BY-SA 4.0"},
+      { id: "brownie-ice-cream", name: "Brownie with Ice Cream", category: "Dessert", type: "veg", price: 199, description: "Warm chocolate brownie with a scoop of vanilla ice cream.", image: "https://upload.wikimedia.org/wikipedia/commons/5/52/Brownie_ice_cream_2.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Brownie_ice_cream_2.jpg", imageCredit: "JAYASHREESATHIYAMOORTHY", imageLicense: "CC BY-SA 4.0"},
+      { id: "shrikhand", name: "Shrikhand", category: "Dessert", type: "veg", price: 119, description: "Thick hung yoghurt whipped with saffron and cardamom.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Shrikhand_london_kastoori.jpg/960px-Shrikhand_london_kastoori.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Shrikhand_london_kastoori.jpg", imageCredit: "Secretlondon", imageLicense: "CC BY-SA 3.0"},
+      { id: "jalebi-rabri", name: "Jalebi with Rabri", category: "Dessert", type: "veg", price: 159, description: "Crisp, syrupy jalebi served with creamy rabri.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Jalebi_with_Rabri_-_Mohali_2016-08-06_8229.JPG/960px-Jalebi_with_Rabri_-_Mohali_2016-08-06_8229.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Jalebi_with_Rabri_-_Mohali_2016-08-06_8229.JPG", imageCredit: "Biswarup Ganguly", imageLicense: "CC BY 3.0"},
+      { id: "kesar-pista-kulfi", name: "Kesar Pista Kulfi", category: "Dessert", type: "veg", price: 129, description: "Creamy saffron kulfi finished with chopped pistachios.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Kulfi_ice-cream.jpg/960px-Kulfi_ice-cream.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Kulfi_ice-cream.jpg", imageCredit: "Shreya13jain", imageLicense: "CC BY-SA 4.0"},
+
+      { id: "masala-chai", name: "Masala Chai", category: "Drinks", type: "veg", price: 49, description: "Freshly brewed Indian tea with milk and warming spices.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Masala_Chai.jpg/960px-Masala_Chai.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Masala_Chai.jpg", imageCredit: "Ganesh Mohan T", imageLicense: "CC BY-SA 4.0"},
+      { id: "cold-coffee", name: "Cold Coffee", category: "Drinks", type: "veg", price: 139, description: "Chilled, blended coffee topped with a creamy froth.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Cold_Coffee_2.jpg/960px-Cold_Coffee_2.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Cold_Coffee_2.jpg", imageCredit: "Gannu03", imageLicense: "CC BY-SA 4.0"},
+      { id: "sweet-lassi", name: "Sweet Lassi", category: "Drinks", type: "veg", price: 99, description: "Chilled yoghurt drink, lightly sweet and refreshing.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Lassi_%28Sweet%29.JPG/960px-Lassi_%28Sweet%29.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Lassi_(Sweet).JPG", imageCredit: "Nivasdurai", imageLicense: "CC BY-SA 4.0"},
+      { id: "mango-lassi", name: "Mango Lassi", category: "Drinks", type: "veg", price: 129, description: "Ripe mango blended with creamy yoghurt.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Mango_Lassi_and_Butter_Milk_-_Vel_South_Indian_Kitchen_%2B_Bar.jpg/960px-Mango_Lassi_and_Butter_Milk_-_Vel_South_Indian_Kitchen_%2B_Bar.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Mango_Lassi_and_Butter_Milk_-_Vel_South_Indian_Kitchen_%2B_Bar.jpg", imageCredit: "Andy Li", imageLicense: "CC0"},
+      { id: "fresh-lime-soda", name: "Fresh Lime Soda", category: "Drinks", type: "veg", price: 89, description: "Fresh lime with sparkling soda, sweet or salted.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Lemon_drink.jpg/960px-Lemon_drink.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Lemon_drink.jpg", imageCredit: "Shubamjamwal1996", imageLicense: "CC BY-SA 3.0"},
+      { id: "shikanji", name: "Shikanji", category: "Drinks", type: "veg", price: 79, description: "Indian lemonade with roasted cumin and black salt.", image: "https://upload.wikimedia.org/wikipedia/commons/8/82/Shikanji-_served_with_pomegranate%2Cgrated_apple_and_mint.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Shikanji-_served_with_pomegranate,grated_apple_and_mint.jpg", imageCredit: "Kanikatwl", imageLicense: "CC BY-SA 4.0"},
+      { id: "jaljeera", name: "Jaljeera", category: "Drinks", type: "veg", price: 69, description: "Cool, tangy cumin and mint drink with a hint of spice.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Two_Indian_Drinks.jpg/960px-Two_Indian_Drinks.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Two_Indian_Drinks.jpg", imageCredit: "Nick Gray", imageLicense: "CC BY-SA 2.0"},
+      { id: "cold-drink", name: "Cold Drink", category: "Drinks", type: "veg", price: 59, description: "Chilled assorted soft drink, served in a glass.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Cold_drink_on_even_rainy_season.jpg/960px-Cold_drink_on_even_rainy_season.jpg", imageSource: "https://commons.wikimedia.org/wiki/File:Cold_drink_on_even_rainy_season.jpg", imageCredit: "Chammy17", imageLicense: "CC BY-SA 4.0"},
+      { id: "aam-panna", name: "Aam Panna", category: "Drinks", type: "veg", price: 79, description: "Cooling raw mango drink with roasted cumin and black salt.", image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Aam_Panna_-_Summer_Cooler.JPG/960px-Aam_Panna_-_Summer_Cooler.JPG", imageSource: "https://commons.wikimedia.org/wiki/File:Aam_Panna_-_Summer_Cooler.JPG", imageCredit: "Zeel Patel", imageLicense: "CC BY-SA 4.0"}
+    ];
+
+    // STATE
+    const CATEGORIES = ["All", "Starter", "Main Course", "Bread", "Rice", "Biryani", "Indori", "Chinese", "Dessert", "Drinks"];
+    const state = {
+      category: "All",
+      type: "all",
+      cart: loadCart(),
+      orderType: "Dining",
+      table: "",
+      orderDraft: { name: "", table: "", phone: "", address: "", instructions: "" },
+      confirmedOrder: null,
+      staffFilter: "all",
+      orders: [],
+      newOrderIds: new Set(),
+      deleteCandidate: "",
+      firebase: null,
+      firestore: null,
+      demoMode: !Object.values(FIREBASE_CONFIG).every(Boolean),
+      refreshOrders: null
+    };
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+    const money = value => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(value);
+    const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
+    function loadCart() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
+        return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
+      } catch (error) {
+        console.error("Could not read the saved cart.", error);
+        return {};
+      }
+    }
+    function saveCart() {
+      try {
+        localStorage.setItem(CART_KEY, JSON.stringify(state.cart));
+      } catch (error) {
+        console.error("Could not save the cart.", error);
+        showConnectionError("Your cart could not be saved in this browser. Check available storage space.");
+      }
+    }
+    function cartCount() { return Object.values(state.cart).reduce((sum, qty) => sum + (Number(qty) || 0), 0); }
+    function cartTotal() {
+      return MENU_DATA.reduce((sum, dish) => sum + dish.price * (Number(state.cart[dish.id]) || 0), 0);
+    }
+    function showConnectionError(message) {
+      const banner = $("#connection-banner");
+      banner.textContent = message;
+      banner.hidden = false;
+    }
+    function imageMarkup(dish, className = "dish-image") {
+      return `<div class="dish-image-wrap"><img class="${className}" src="${escapeHTML(dish.image)}" alt="${escapeHTML(dish.name)}" loading="lazy" decoding="async" data-fallback-name="${escapeHTML(dish.name)}"><span class="image-fallback" hidden aria-hidden="true">${escapeHTML(dish.name.slice(0, 1))}</span><a class="photo-credit" href="${escapeHTML(dish.imageSource)}" target="_blank" rel="noopener noreferrer" aria-label="Photo credit: ${escapeHTML(dish.imageCredit)}; ${escapeHTML(dish.name)}; ${escapeHTML(dish.imageLicense)}">Photo: ${escapeHTML(dish.imageCredit)} ? ${escapeHTML(dish.imageLicense)}</a></div>`;
+    }
+    function updateCount() {
+      const count = cartCount();
+      $("#cart-count").textContent = String(count);
+      $("#floating-cart-count").textContent = String(count);
+      $("#floating-cart").classList.toggle("visible", count > 0 && location.hash !== "#cart");
+      $("#cart-count").setAttribute("aria-label", `${count} items`);
+    }
+
+    // RENDER FUNCTIONS
+    function renderCategories() {
+      $("#category-tabs").innerHTML = CATEGORIES.map(category =>
+        `<button class="category-tab" type="button" data-category="${escapeHTML(category)}" aria-pressed="${state.category === category}">${escapeHTML(category)}</button>`
+      ).join("");
+    }
+    function renderMenu() {
+      const query = $("#menu-search").value.trim().toLocaleLowerCase();
+      const dishes = MENU_DATA.filter(dish =>
+        (state.category === "All" || dish.category === state.category) &&
+        (state.type === "all" || dish.type === state.type) &&
+        (!query || `${dish.name} ${dish.description}`.toLocaleLowerCase().includes(query))
+      );
+      $("#menu-grid").innerHTML = dishes.map(dish => {
+        const qty = Number(state.cart[dish.id]) || 0;
+        const veg = dish.type === "veg";
+        const control = qty
+          ? `<div class="quantity-control" aria-label="${escapeHTML(dish.name)} quantity"><button type="button" data-qty-change="-1" data-id="${escapeHTML(dish.id)}" aria-label="Remove one ${escapeHTML(dish.name)}">−</button><output>${qty}</output><button type="button" data-qty-change="1" data-id="${escapeHTML(dish.id)}" aria-label="Add one ${escapeHTML(dish.name)}">+</button></div>`
+          : `<button class="add-button" type="button" data-add="${escapeHTML(dish.id)}" aria-label="Add ${escapeHTML(dish.name)} to cart">Add</button>`;
+        return `<article class="dish-card">${imageMarkup(dish)}<div class="dish-copy"><div class="dish-title-row"><h2 class="dish-name">${escapeHTML(dish.name)}</h2><span class="food-mark ${veg ? "" : "nonveg"}" role="img" aria-label="${veg ? "Vegetarian" : "Non-vegetarian"}"></span></div><p class="dish-description">${escapeHTML(dish.description)}</p><div class="dish-bottom"><span class="price">${money(dish.price)}</span>${control}</div></div></article>`;
+      }).join("");
+      $("#menu-empty").hidden = dishes.length !== 0;
+    }
+    function renderCart() {
+      const container = $("#cart-content");
+      const currentForm = $("#order-form", container);
+      const draft = currentForm ? {
+        name: $("#customer-name", currentForm).value,
+        table: $("#table-number", currentForm).value,
+        phone: $("#phone-number", currentForm)?.value || "",
+        address: $("#delivery-address", currentForm)?.value || "",
+        instructions: $("#instructions", currentForm).value
+      } : state.orderDraft;
+      if (state.confirmedOrder) {
+        const order = state.confirmedOrder;
+        container.innerHTML = `<div class="confirmation" role="status"><div class="confirmation-icon" aria-hidden="true">✓</div><span class="eyebrow">Order received</span><h2>Thank you, ${escapeHTML(order.name)}!</h2><p>Your order is on its way to our team.</p><p class="order-number">${escapeHTML(order.orderNumber)}</p><p><strong>${escapeHTML(order.orderType === "Dining" ? `Table ${order.table}` : order.orderType)}</strong></p><ul class="confirmation-list">${order.items.map(item => `<li>${item.qty} × ${escapeHTML(item.name)} — ${money(item.qty * item.price)}</li>`).join("")}</ul><p class="confirmation-total">Total: ${money(order.total)}</p><button class="primary-button" type="button" data-go-menu>Back to the menu</button></div>`;
+        return;
+      }
+      const dishes = MENU_DATA.filter(dish => Number(state.cart[dish.id]) > 0);
+      if (!dishes.length) {
+        container.innerHTML = `<div class="empty-state"><h2>Your cart is waiting</h2><p>Add something delicious from our menu.</p><a class="primary-button" href="#menu" style="display:inline-block;text-decoration:none">Browse the menu</a></div>`;
+        return;
+      }
+      const rows = dishes.map(dish => {
+        const qty = Number(state.cart[dish.id]);
+        return `<article class="cart-row"><div class="cart-thumb"><img src="${escapeHTML(dish.image)}" alt="" loading="lazy" data-fallback-name="${escapeHTML(dish.name)}"><span class="image-fallback" hidden aria-hidden="true">${escapeHTML(dish.name.slice(0, 1))}</span></div><div class="cart-info"><strong>${escapeHTML(dish.name)}</strong><span>${money(dish.price)} each</span><div class="cart-controls"><div class="quantity-control" aria-label="${escapeHTML(dish.name)} quantity"><button type="button" data-qty-change="-1" data-id="${escapeHTML(dish.id)}" aria-label="Remove one ${escapeHTML(dish.name)}">−</button><output>${qty}</output><button type="button" data-qty-change="1" data-id="${escapeHTML(dish.id)}" aria-label="Add one ${escapeHTML(dish.name)}">+</button></div><button class="remove-button" type="button" data-remove="${escapeHTML(dish.id)}">Remove</button></div></div><span class="line-total">${money(dish.price * qty)}</span></article>`;
+      }).join("");
+      const selectedTable = draft.table;
+      container.innerHTML = `<div class="cart-layout"><div><div class="cart-list">${rows}</div><div class="cart-total"><span>Grand total</span><span>${money(cartTotal())}</span></div></div><form class="cart-form panel" id="order-form" novalidate><h2 class="form-section-title">Your details</h2><div class="form-grid"><div class="field"><label for="customer-name">Your Name <span aria-hidden="true">*</span></label><input class="field-control" id="customer-name" name="name" maxlength="80" autocomplete="name" required><span class="field-error" data-error="name"></span></div><div class="field"><label for="table-number">Table Number <span aria-hidden="true">*</span></label><select class="field-control" id="table-number" name="table" required><option value="">Select a table</option>${Array.from({ length: 30 }, (_, index) => `<option value="${index + 1}" ${String(selectedTable) === String(index + 1) ? "selected" : ""}>Table ${index + 1}</option>`).join("")}${state.orderType !== "Dining" ? `<option value="Not at a table" ${selectedTable === "Not at a table" ? "selected" : ""}>Not at a table</option>` : ""}</select><span class="field-error" data-error="table"></span></div><fieldset class="field" style="border:0;padding:0;margin:0"><legend class="field-label">Order Type <span aria-hidden="true">*</span></legend><div class="order-types">${["Dining", "Take Away", "Delivery"].map(type => `<label class="order-type-option"><input type="radio" name="orderType" value="${type}" ${state.orderType === type ? "checked" : ""}>${type}</label>`).join("")}</div></fieldset><div id="delivery-fields" ${state.orderType === "Delivery" ? "" : "hidden"}><div class="form-grid" style="margin-top:0"><div class="field"><label for="phone-number">Phone Number <span aria-hidden="true">*</span></label><input class="field-control" id="phone-number" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" ${state.orderType === "Delivery" ? "required" : ""}><span class="field-error" data-error="phone"></span></div><div class="field"><label for="delivery-address">Delivery Address <span aria-hidden="true">*</span></label><textarea class="field-control" id="delivery-address" name="address" maxlength="300" autocomplete="street-address" ${state.orderType === "Delivery" ? "required" : ""}></textarea><span class="field-error" data-error="address"></span></div></div></div><div class="field"><label for="instructions">Special Instructions</label><textarea class="field-control" id="instructions" name="instructions" maxlength="500" placeholder="For example: less spicy, no onion"></textarea></div><div class="field-error form-error" id="form-error" role="alert"></div><button class="primary-button" type="submit">Send Order · ${money(cartTotal())}</button><span class="field-error">* Required fields</span></div></form></div>`;
+      $("#customer-name", container).value = draft.name;
+      $("#table-number", container).value = selectedTable;
+      $("#instructions", container).value = draft.instructions;
+      const phoneInput = $("#phone-number", container);
+      const addressInput = $("#delivery-address", container);
+      if (phoneInput) phoneInput.value = draft.phone;
+      if (addressInput) addressInput.value = draft.address;
+      state.orderDraft = { ...draft };
+    }
+    function renderPage() {
+      const requested = location.hash.slice(1).split("?")[0] || "menu";
+      const route = ["menu", "cart", "qr", "staff"].includes(requested) ? requested : "menu";
+      $$(".page").forEach(page => page.classList.toggle("active", page.id === `${route}-page`));
+      $$("[data-route]").forEach(link => {
+        if (link.dataset.route === route) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+      if (route === "cart") renderCart();
+      if (route === "staff") renderStaff();
+      updateCount();
+      window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+    }
+
+    // CART
+    function updateCart(id, delta) {
+      if (delta > 0) state.confirmedOrder = null;
+      const current = Number(state.cart[id]) || 0;
+      const next = current + delta;
+      if (next > 0) state.cart[id] = next;
+      else delete state.cart[id];
+      saveCart();
+      renderMenu();
+      updateCount();
+      if (location.hash === "#cart") renderCart();
+    }
+    function clearCart() {
+      state.cart = {};
+      saveCart();
+      renderMenu();
+      updateCount();
+    }
+    function prefillTableFromUrl() {
+      const queryTable = new URLSearchParams(location.search).get("table");
+      const hashMatch = location.hash.match(/[?&]table=(\d+)/i);
+      const raw = queryTable || (hashMatch && hashMatch[1]);
+      if (raw && /^\d+$/.test(raw) && Number(raw) >= 1 && Number(raw) <= 30) {
+        state.table = String(Number(raw));
+        state.orderDraft.table = state.table;
+      }
+    }
+
+    // ORDERS
+    function makeOrder(form) {
+      const data = new FormData(form);
+      const orderType = data.get("orderType");
+      const items = MENU_DATA.filter(dish => Number(state.cart[dish.id]) > 0)
+        .map(dish => ({ name: dish.name, qty: Number(state.cart[dish.id]), price: dish.price }));
+      return {
+        orderNumber: `ST-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${Math.floor(1000 + Math.random() * 9000)}`,
+        name: String(data.get("name") || "").trim(),
+        table: String(data.get("table") || ""),
+        orderType: String(orderType || "Dining"),
+        items,
+        total: cartTotal(),
+        instructions: String(data.get("instructions") || "").trim(),
+        ...(orderType === "Delivery" ? { phone: String(data.get("phone") || "").trim(), address: String(data.get("address") || "").trim() } : {}),
+        status: "new"
+      };
+    }
+    function validateOrder(form, order) {
+      let valid = true;
+      const phoneDigits = (order.phone || "").replace(/\D/g, "").length;
+      const errors = {
+        name: !order.name ? "Please enter your name." : order.name.length > 80 ? "Name must be 80 characters or fewer." : "",
+        table: !order.table ? "Please select a table or choose Not at a table." : "",
+        phone: order.orderType === "Delivery" && (!/^[+()\d\s-]{7,20}$/.test(order.phone || "") || phoneDigits < 7 || phoneDigits > 15) ? "Enter a valid phone number." : "",
+        address: order.orderType === "Delivery" && !order.address ? "Please enter your delivery address." : ""
+      };
+      Object.entries(errors).forEach(([key, message]) => {
+        const target = $(`[data-error="${key}"]`, form);
+        target.textContent = message;
+        if (message) valid = false;
+      });
+      const error = $("#form-error", form);
+      error.textContent = order.items.length ? "" : "Your cart is empty.";
+      if (!order.items.length) valid = false;
+      return valid;
+    }
+    async function saveOrder(order) {
+      if (state.demoMode) {
+        const orders = readDemoOrders();
+        orders.push({ ...order, id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`, createdAt: new Date().toISOString() });
+        localStorage.setItem(DEMO_ORDERS_KEY, JSON.stringify(orders));
+        return;
+      }
+      if (!state.firebase || !state.firestore) throw new Error("Firebase is not connected. Check the configuration and reload.");
+      const { addDoc, collection, serverTimestamp } = state.firestore;
+      await addDoc(collection(state.firebase, "orders"), { ...order, createdAt: serverTimestamp() });
+    }
+    function readDemoOrders() {
+      try {
+        const value = JSON.parse(localStorage.getItem(DEMO_ORDERS_KEY) || "[]");
+        return Array.isArray(value) ? value : [];
+      } catch (error) {
+        console.error("Could not read demo orders.", error);
+        showConnectionError("Saved demo orders could not be read from this browser.");
+        return [];
+      }
+    }
+    function orderTimestamp(order) {
+      const timestamp = order.createdAt;
+      if (timestamp && typeof timestamp.toDate === "function") return timestamp.toDate().getTime();
+      const parsed = new Date(timestamp || 0).getTime();
+      return Number.isNaN(parsed) ? 0 : parsed;
+    }
+    function formatTime(order) {
+      const time = orderTimestamp(order);
+      return time ? new Intl.DateTimeFormat("en-IN", { dateStyle: "medium", timeStyle: "short" }).format(new Date(time)) : "Just now";
+    }
+    function playOrderBeep() {
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        const context = new AudioContextClass();
+        const oscillator = context.createOscillator();
+        const gain = context.createGain();
+        oscillator.frequency.value = 880;
+        gain.gain.setValueAtTime(.08, context.currentTime);
+        gain.gain.exponentialRampToValueAtTime(.001, context.currentTime + .22);
+        oscillator.connect(gain);
+        gain.connect(context.destination);
+        oscillator.start();
+        oscillator.stop(context.currentTime + .22);
+        oscillator.onended = () => context.close();
+      } catch (error) {
+        console.warn("Order notification sound could not be played.", error);
+      }
+    }
+    function subscribeOrders() {
+      if (!sessionStorage.getItem(STAFF_SESSION_KEY) || location.hash !== "#staff") return;
+      if (state.demoMode) {
+        const refresh = () => {
+          const next = readDemoOrders().sort((a, b) => orderTimestamp(b) - orderTimestamp(a));
+          const known = new Set(state.orders.map(order => order.id));
+          const added = next.filter(order => !known.has(order.id));
+          state.orders = next;
+          if (added.length && state.ordersLoaded) {
+            added.forEach(order => state.newOrderIds.add(order.id));
+            playOrderBeep();
+          }
+          state.ordersLoaded = true;
+          renderStaff();
+        };
+        state.refreshOrders = refresh;
+        refresh();
+        return;
+      }
+      if (!state.firebase || !state.firestore) return;
+      if (state.unsubscribeOrders) return;
+      const { collection, onSnapshot, query, orderBy } = state.firestore;
+      state.unsubscribeOrders = onSnapshot(query(collection(state.firebase, "orders"), orderBy("createdAt", "desc")), snapshot => {
+        const next = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const known = new Set(state.orders.map(order => order.id));
+        const added = next.filter(order => !known.has(order.id));
+        state.orders = next;
+        if (!state.ordersLoaded) state.ordersLoaded = true;
+        else if (added.length) {
+          added.forEach(order => state.newOrderIds.add(order.id));
+          playOrderBeep();
+        }
+        renderStaff();
+      }, error => {
+        console.error("Could not receive live Firestore orders.", error);
+        showConnectionError("Live orders are unavailable. Check your Firebase configuration and Firestore rules.");
+      });
+    }
+    function stopOrderSubscription() {
+      if (state.unsubscribeOrders) {
+        state.unsubscribeOrders();
+        state.unsubscribeOrders = null;
+      }
+      clearInterval(state.refreshInterval);
+      state.refreshOrders = null;
+      state.ordersLoaded = false;
+      state.orders = [];
+    }
+
+    // STAFF
+    function renderStaff() {
+      const container = $("#staff-content");
+      if (!sessionStorage.getItem(STAFF_SESSION_KEY)) {
+        container.innerHTML = `<form class="staff-login panel" id="staff-login-form" novalidate><h2 class="form-section-title">Staff sign in</h2><p class="intro">Enter your team access code to see incoming orders.</p><div class="field"><label for="staff-code">Access code</label><input class="field-control" id="staff-code" name="code" type="password" inputmode="numeric" autocomplete="current-password" required><span class="field-error" id="staff-login-error" role="alert"></span></div><button class="primary-button" type="submit" style="margin-top:12px">Sign in</button></form>`;
+        return;
+      }
+      const filtered = state.orders.filter(order => state.staffFilter === "all" || (state.staffFilter === "done" ? order.status === "done" : order.status === state.staffFilter));
+      const filters = [["all", "All"], ["new", "New"], ["preparing", "Preparing"], ["done", "Done"]];
+      container.innerHTML = `<div class="staff-toolbar"><span class="intro" style="margin:0">${state.demoMode ? "Demo orders on this device" : "Live order updates enabled"}</span><button class="secondary-button" type="button" id="staff-logout">Logout</button></div><div class="status-filters" role="group" aria-label="Filter orders">${filters.map(([id, label]) => `<button class="staff-filter" type="button" data-staff-filter="${id}" aria-pressed="${state.staffFilter === id}">${label}</button>`).join("")}</div><div class="orders-list">${filtered.length ? filtered.map(order => {
+        const label = order.orderType === "Dining" ? "Dining" : order.orderType;
+        const table = order.table || "Not at a table";
+        const items = Array.isArray(order.items) ? order.items : [];
+        return `<article class="staff-order ${state.newOrderIds.has(order.id) ? "is-new" : ""}" data-order-id="${escapeHTML(order.id)}"><div class="staff-order-head"><div><p class="staff-order-number">${escapeHTML(order.orderNumber || "Order")}</p><span class="table-number">${escapeHTML(table === "Not at a table" ? table : `TABLE ${table}`)}</span><p class="staff-customer">${escapeHTML(order.name || "Guest")}</p></div><span class="order-badge">${escapeHTML(label)}</span></div><p class="order-meta">Placed ${escapeHTML(formatTime(order))}</p><ul class="staff-items">${items.map(item => `<li>${Number(item.qty) || 0} × ${escapeHTML(item.name)} — ${money(Number(item.price) || 0)}</li>`).join("")}</ul>${order.instructions ? `<div class="instructions-box"><strong>Special instructions:</strong> ${escapeHTML(order.instructions)}</div>` : ""}${order.orderType === "Delivery" ? `<div class="delivery-details"><strong>Phone:</strong> ${escapeHTML(order.phone || "—")}<br><strong>Address:</strong> ${escapeHTML(order.address || "—")}</div>` : ""}<div class="staff-order-bottom"><span class="staff-total">Total ${money(Number(order.total) || 0)}</span><div class="status-controls">${[["new", "New"], ["preparing", "Preparing"], ["done", "Served / Done"]].map(([value, text]) => `<button class="status-button" type="button" data-order-status="${value}" data-id="${escapeHTML(order.id)}" aria-pressed="${order.status === value}">${text}</button>`).join("")}<button class="delete-order" type="button" data-delete-order="${escapeHTML(order.id)}">Delete order</button></div></div>${state.deleteCandidate === order.id ? `<div class="delete-confirm"><span>Delete this order permanently?</span><span><button class="status-button" type="button" data-confirm-delete="${escapeHTML(order.id)}">Delete</button> <button class="status-button" type="button" data-cancel-delete>Cancel</button></span></div>` : ""}</article>`;
+      }).join("") : `<div class="empty-state"><h2>No ${state.staffFilter === "all" ? "" : `${escapeHTML(state.staffFilter)} `}orders</h2><p>New orders will appear here.</p></div>`}</div>`;
+      if (state.refreshOrders) {
+        clearInterval(state.refreshInterval);
+        state.refreshInterval = setInterval(state.refreshOrders, 3000);
+      }
+    }
+    async function updateOrder(id, changes) {
+      if (state.demoMode) {
+        const orders = readDemoOrders().map(order => order.id === id ? { ...order, ...changes } : order);
+        localStorage.setItem(DEMO_ORDERS_KEY, JSON.stringify(orders));
+        state.orders = orders.sort((a, b) => orderTimestamp(b) - orderTimestamp(a));
+        renderStaff();
+        return;
+      }
+      const { doc, updateDoc } = state.firestore;
+      await updateDoc(doc(state.firebase, "orders", id), changes);
+    }
+    async function deleteOrder(id) {
+      if (state.demoMode) {
+        localStorage.setItem(DEMO_ORDERS_KEY, JSON.stringify(readDemoOrders().filter(order => order.id !== id)));
+        state.orders = state.orders.filter(order => order.id !== id);
+        renderStaff();
+        return;
+      }
+      const { deleteDoc, doc } = state.firestore;
+      await deleteDoc(doc(state.firebase, "orders", id));
+    }
+
+    // QR
+    const HOW_TO = [
+      "Scan this QR code with your phone camera.",
+      "Browse Our Menu and add dishes to your cart.",
+      "Tap Send Order. Our team will bring it to your table."
+    ];
+    function tableUrl(base, number) {
+      const url = new URL(base);
+      url.searchParams.set("table", String(number));
+      return url.toString();
+    }
+    function qrSvgFor(tableNumber, website) {
+      if (typeof window.qrcode !== "function") throw new Error("The QR code library did not load. Check your internet connection and try again.");
+      const qr = window.qrcode(0, "H");
+      qr.addData(tableUrl(website, tableNumber));
+      qr.make();
+      const count = qr.getModuleCount();
+      const quiet = 4;
+      const qrSize = 280;
+      const moduleSize = qrSize / (count + quiet * 2);
+      const left = (600 - qrSize) / 2;
+      const top = 202;
+      let modules = "";
+      for (let row = 0; row < count; row++) {
+        for (let col = 0; col < count; col++) {
+          if (qr.isDark(row, col)) {
+            const x = left + (col + quiet) * moduleSize;
+            const y = top + (row + quiet) * moduleSize;
+            modules += `M${x.toFixed(2)} ${y.toFixed(2)}h${moduleSize.toFixed(2)}v${moduleSize.toFixed(2)}h-${moduleSize.toFixed(2)}z`;
+          }
+        }
+      }
+      const steps = HOW_TO.map((text, index) => `<text x="74" y="${610 + index * 36}" font-family="Arial,sans-serif" font-size="17" fill="#514840">${index + 1}. ${escapeHTML(text)}</text>`).join("");
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="850" viewBox="0 0 600 850"><rect width="600" height="850" fill="#ffffff"/><text x="300" y="67" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="700" fill="#29231e">Saffron Table</text><text x="300" y="96" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="2" fill="#766d64">INDORE, MADHYA PRADESH</text><text x="300" y="157" text-anchor="middle" font-family="Georgia,serif" font-size="48" font-weight="700" fill="#29231e">Table ${tableNumber}</text><rect x="${left}" y="${top}" width="${qrSize}" height="${qrSize}" fill="#ffffff"/><path d="${modules}" fill="#171411"/><rect x="48" y="535" width="504" height="255" rx="14" fill="#fff8ef" stroke="#f0dfc8" stroke-width="2"/><text x="74" y="579" font-family="Georgia,serif" font-size="24" font-weight="700" fill="#29231e">How to use</text>${steps}</svg>`;
+    }
+    function renderQrCards(base, count) {
+      const grid = $("#qr-grid");
+      const cards = [];
+      for (let number = 1; number <= count; number++) {
+        const svg = qrSvgFor(number, base);
+        const image = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+        cards.push(`<article class="qr-card" data-table-card="${number}"><h2 class="qr-brand">Saffron Table</h2><p class="qr-location">INDORE, MADHYA PRADESH</p><h3 class="qr-table-label">Table ${number}</h3><img class="qr-image" src="${image}" alt="QR code for Saffron Table, table ${number}"><div class="qr-howto"><strong>How to use</strong><ol>${HOW_TO.map(step => `<li>${escapeHTML(step)}</li>`).join("")}</ol></div><div class="qr-card-actions"><button class="secondary-button" type="button" data-download="png" data-number="${number}">Download PNG</button><button class="secondary-button" type="button" data-download="svg" data-number="${number}">Download SVG</button></div></article>`);
+      }
+      const pages = [];
+      for (let index = 0; index < cards.length; index += 2) {
+        pages.push(`<div class="qr-print-page">${cards.slice(index, index + 2).join("")}</div>`);
+      }
+      grid.innerHTML = pages.join("");
+    }
+    function makeFilename(number, extension) { return `saffron-table-table-${number}.${extension}`; }
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      document.body.append(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    function svgBlob(number) {
+      const website = localStorage.getItem(WEBSITE_KEY) || $("#menu-address").value.trim();
+      return new Blob([qrSvgFor(number, website)], { type: "image/svg+xml;charset=utf-8" });
+    }
+    async function pngBlob(number) {
+      const svg = await svgBlob(number).text();
+      const image = new Image();
+      const source = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml;charset=utf-8" }));
+      try {
+        await new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = () => reject(new Error("Could not render the QR card image."));
+          image.src = source;
+        });
+        const canvas = document.createElement("canvas");
+        canvas.width = 1200;
+        canvas.height = 1700;
+        const context = canvas.getContext("2d");
+        if (!context) throw new Error("Canvas is unavailable in this browser.");
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        return await new Promise((resolve, reject) => canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error("Could not create the PNG download.")), "image/png"));
+      } finally {
+        URL.revokeObjectURL(source);
+      }
+    }
+    function validateQrSettings() {
+      const base = $("#menu-address").value.trim();
+      const count = Number($("#table-count").value);
+      $("#qr-address-error").textContent = "";
+      $("#qr-general-error").textContent = "";
+      if (!base) {
+        $("#qr-address-error").textContent = "Enter the full website address for your menu.";
+        return null;
+      }
+      let url;
+      try { url = new URL(base); }
+      catch { $("#qr-address-error").textContent = "Enter a valid full URL, including https://."; return null; }
+      if (!["http:", "https:"].includes(url.protocol)) {
+        $("#qr-address-error").textContent = "Use a website address that begins with http:// or https://.";
+        return null;
+      }
+      if (!Number.isInteger(count) || count < 1 || count > 100) {
+        $("#qr-general-error").textContent = "Choose a whole number of tables from 1 to 100.";
+        return null;
+      }
+      return { base: url.toString(), count };
+    }
+
+    // BOOTSTRAP AND EVENTS
+    async function configureBackend() {
+      if (state.demoMode) {
+        $("#demo-banner").hidden = false;
+        return;
+      }
+      try {
+        const [appModule, firestoreModule] = await Promise.all([
+          import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"),
+          import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js")
+        ]);
+        state.firebase = appModule.initializeApp(FIREBASE_CONFIG);
+        state.firestore = firestoreModule;
+      } catch (error) {
+        console.error("Firebase could not be initialized.", error);
+        showConnectionError("Firebase could not connect. Verify the config and network, then reload; orders are not being saved.");
+      }
+    }
+    function navigate(hash) {
+      if (location.hash === hash) renderPage();
+      else location.hash = hash;
+    }
+    renderCategories();
+    renderMenu();
+    updateCount();
+    document.addEventListener("error", event => {
+      const image = event.target;
+      if (!(image instanceof HTMLImageElement) || !image.dataset.fallbackName) return;
+      image.hidden = true;
+      const fallback = image.nextElementSibling;
+      if (fallback && fallback.classList.contains("image-fallback")) fallback.hidden = false;
+    }, true);
+    prefillTableFromUrl();
+    $("#menu-address").value = localStorage.getItem(WEBSITE_KEY) || "";
+    $("#menu-search").addEventListener("input", renderMenu);
+    $("#category-tabs").addEventListener("click", event => {
+      const button = event.target.closest("[data-category]");
+      if (!button) return;
+      state.category = button.dataset.category;
+      renderCategories();
+      renderMenu();
+    });
+    $(".filter-row").addEventListener("click", event => {
+      const button = event.target.closest("[data-type-filter]");
+      if (!button) return;
+      state.type = button.dataset.typeFilter;
+      $$("[data-type-filter]").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+      renderMenu();
+    });
+    $("#clear-filters").addEventListener("click", () => {
+      $("#menu-search").value = "";
+      state.category = "All";
+      state.type = "all";
+      $$("[data-type-filter]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.typeFilter === "all")));
+      renderCategories();
+      renderMenu();
+    });
+    $("#menu-grid").addEventListener("click", event => {
+      const add = event.target.closest("[data-add]");
+      const change = event.target.closest("[data-qty-change]");
+      if (add) updateCart(add.dataset.add, 1);
+      if (change) updateCart(change.dataset.id, Number(change.dataset.qtyChange));
+    });
+    $("#cart-content").addEventListener("click", event => {
+      const change = event.target.closest("[data-qty-change]");
+      const remove = event.target.closest("[data-remove]");
+      if (change) updateCart(change.dataset.id, Number(change.dataset.qtyChange));
+      if (remove) updateCart(remove.dataset.remove, -(Number(state.cart[remove.dataset.remove]) || 0));
+      if (event.target.closest("[data-go-menu]")) navigate("#menu");
+    });
+    $("#floating-cart").addEventListener("click", () => navigate("#cart"));
+    $("#cart-content").addEventListener("change", event => {
+      if (event.target.name === "orderType") {
+        const tableSelect = $("#table-number");
+        const selectedTable = tableSelect.value;
+        state.orderType = event.target.value;
+        if (state.orderType !== "Dining" && !tableSelect.querySelector('option[value="Not at a table"]')) {
+          tableSelect.add(new Option("Not at a table", "Not at a table"));
+        }
+        if (state.orderType === "Dining") {
+          if (selectedTable === "Not at a table") tableSelect.value = "";
+          tableSelect.querySelector('option[value="Not at a table"]')?.remove();
+        }
+        state.orderDraft.table = tableSelect.value;
+        $("#delivery-fields").hidden = state.orderType !== "Delivery";
+        $("#phone-number").required = state.orderType === "Delivery";
+        $("#delivery-address").required = state.orderType === "Delivery";
+      } else if (event.target.name === "table") {
+        state.orderDraft.table = event.target.value;
+      }
+    });
+    $("#cart-content").addEventListener("input", event => {
+      const fields = {
+        "customer-name": "name",
+        "phone-number": "phone",
+        "delivery-address": "address",
+        instructions: "instructions"
+      };
+      const key = fields[event.target.id];
+      if (key) state.orderDraft[key] = event.target.value;
+    });
+    $("#cart-content").addEventListener("submit", async event => {
+      if (event.target.id !== "order-form") return;
+      event.preventDefault();
+      const form = event.target;
+      const order = makeOrder(form);
+      if (!validateOrder(form, order)) return;
+      const button = $('button[type="submit"]', form);
+      button.disabled = true;
+      button.textContent = "Sending order…";
+      try {
+        await saveOrder(order);
+        state.confirmedOrder = order;
+        state.table = order.table;
+        state.orderDraft = { name: "", table: order.table, phone: "", address: "", instructions: "" };
+        clearCart();
+        renderCart();
+      } catch (error) {
+        console.error("Order submission failed.", error);
+        const errorTarget = $("#form-error", form);
+        errorTarget.textContent = "We couldn't send your order. Please check your connection and try again.";
+        button.disabled = false;
+        button.textContent = `Send Order · ${money(cartTotal())}`;
+      }
+    });
+    $("#staff-content").addEventListener("submit", event => {
+      if (event.target.id !== "staff-login-form") return;
+      event.preventDefault();
+      if ($("#staff-code").value === STAFF_CODE) {
+        sessionStorage.setItem(STAFF_SESSION_KEY, "true");
+        subscribeOrders();
+        renderStaff();
+      } else {
+        $("#staff-login-error").textContent = "That code didn't match. Please try again.";
+        $("#staff-code").setAttribute("aria-invalid", "true");
+      }
+    });
+    $("#staff-content").addEventListener("click", async event => {
+      const filter = event.target.closest("[data-staff-filter]");
+      if (filter) {
+        state.staffFilter = filter.dataset.staffFilter;
+        renderStaff();
+        return;
+      }
+      if (event.target.closest("#staff-logout")) {
+        sessionStorage.removeItem(STAFF_SESSION_KEY);
+        stopOrderSubscription();
+        clearInterval(state.refreshInterval);
+        renderStaff();
+        return;
+      }
+      const status = event.target.closest("[data-order-status]");
+      const deleteButton = event.target.closest("[data-delete-order]");
+      const confirm = event.target.closest("[data-confirm-delete]");
+      const cancel = event.target.closest("[data-cancel-delete]");
+      try {
+        if (status) await updateOrder(status.dataset.id, { status: status.dataset.orderStatus });
+        if (deleteButton) { state.deleteCandidate = deleteButton.dataset.deleteOrder; renderStaff(); }
+        if (confirm) { await deleteOrder(confirm.dataset.confirmDelete); state.deleteCandidate = ""; }
+        if (cancel) { state.deleteCandidate = ""; renderStaff(); }
+      } catch (error) {
+        console.error("Could not update the order.", error);
+        showConnectionError("That order could not be updated. Check the connection and your Firestore rules.");
+      }
+    });
+    $("#generate-qr").addEventListener("click", () => {
+      const settings = validateQrSettings();
+      if (!settings) return;
+      try {
+        localStorage.setItem(WEBSITE_KEY, settings.base);
+        renderQrCards(settings.base, settings.count);
+      } catch (error) {
+        console.error("QR code generation failed.", error);
+        $("#qr-general-error").textContent = error.message || "QR codes could not be generated.";
+      }
+    });
+    $("#qr-grid").addEventListener("click", async event => {
+      const button = event.target.closest("[data-download]");
+      if (!button) return;
+      const number = Number(button.dataset.number);
+      button.disabled = true;
+      try {
+        if (button.dataset.download === "svg") downloadBlob(svgBlob(number), makeFilename(number, "svg"));
+        else downloadBlob(await pngBlob(number), makeFilename(number, "png"));
+      } catch (error) {
+        console.error("QR download failed.", error);
+        $("#qr-general-error").textContent = error.message || "The QR code could not be downloaded.";
+      } finally { button.disabled = false; }
+    });
+    async function downloadAll(extension) {
+      const settings = validateQrSettings();
+      if (!settings) return;
+      try {
+        localStorage.setItem(WEBSITE_KEY, settings.base);
+        for (let number = 1; number <= settings.count; number++) {
+          const blob = extension === "svg" ? svgBlob(number) : await pngBlob(number);
+          downloadBlob(blob, makeFilename(number, extension));
+          await new Promise(resolve => setTimeout(resolve, 180));
+        }
+      } catch (error) {
+        console.error(`Bulk ${extension.toUpperCase()} download failed.`, error);
+        $("#qr-general-error").textContent = error.message || "One or more QR cards could not be downloaded.";
+      }
+    }
+    $("#download-all-png").addEventListener("click", () => downloadAll("png"));
+    $("#download-all-svg").addEventListener("click", () => downloadAll("svg"));
+    $("#print-all").addEventListener("click", () => window.print());
+    window.addEventListener("hashchange", () => {
+      if (location.hash === "#staff") subscribeOrders();
+      else stopOrderSubscription();
+      renderPage();
+    });
+    window.addEventListener("storage", event => {
+      if (event.key === CART_KEY) {
+        state.cart = loadCart();
+        renderMenu();
+        updateCount();
+        if (location.hash === "#cart") renderCart();
+      }
+      if (event.key === DEMO_ORDERS_KEY && state.refreshOrders) state.refreshOrders();
+    });
+    await configureBackend();
+    renderPage();
+    if (location.hash === "#staff") subscribeOrders();
+  </script>
+</body>
+</html>
